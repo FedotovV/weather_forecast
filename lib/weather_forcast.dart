@@ -68,12 +68,15 @@ class WeatherForcast extends StatelessWidget {
                       size: 85,
                       color: Colors.white,
                     ),
-                    title: Text(
-                      '14 °F',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 36,
-                          fontWeight: FontWeight.w300),
+                    title: Padding(
+                      padding: EdgeInsets.only(top: 15),
+                      child: Text(
+                        '14 °F',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 36,
+                            fontWeight: FontWeight.w300),
+                      ),
                     ),
                     subtitle: Text(
                       'LIGHT SNOW',
@@ -84,9 +87,39 @@ class WeatherForcast extends StatelessWidget {
                     ),
                   ),
                 ),
-                Row(
-                  children: [Text('data')],
-                )
+                const SizedBox(
+                  height: 35,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 65),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          const Icon(Icons.ac_unit),
+                          Text('5', style: styleWeaterDetail),
+                          Text('km/hr', style: styleWeaterDetail),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          const Icon(Icons.ac_unit),
+                          Text('3', style: styleWeaterDetail),
+                          Text('%', style: styleWeaterDetail),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          const Icon(Icons.ac_unit),
+                          Text('20', style: styleWeaterDetail),
+                          Text('%', style: styleWeaterDetail),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -100,13 +133,20 @@ class WeatherForcast extends StatelessWidget {
 //   return Wrap(
 //       spacing: 20,
 //       children: List.generate(7, (int? index) {
-//         return Chip(label: Text(''));
+//         return Chip(label: Text('Friday'));
 //       }));
 // }
 
-
-
-// Widget _WeatherDetail({Icon icon, Text text, Text text2}) {
-  
-//   return 
+// Wrap _WeatherDetailDown() {
+//   return Wrap(
+//     spacing: 15,
+//     children: [
+//       Chip()
+//     ],
+//   );
 // }
+
+TextStyle styleWeaterDetail = const TextStyle(
+  color: Colors.white,
+  fontSize: 22.5,
+);
