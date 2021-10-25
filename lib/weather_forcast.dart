@@ -120,6 +120,10 @@ class WeatherForcast extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: 30,
+                ),
+                SingleChildScrollView(child: _WeatherDetailDown())
               ],
             ),
           ),
@@ -137,16 +141,62 @@ class WeatherForcast extends StatelessWidget {
 //       }));
 // }
 
-// Wrap _WeatherDetailDown() {
-//   return Wrap(
-//     spacing: 15,
-//     children: [
-//       Chip()
-//     ],
-//   );
-// }
+Wrap _WeatherDetailDown() {
+  return Wrap(
+    spacing: 15,
+    children: [
+      Row(
+        children: [
+          Chip(
+            label: ListTile(
+              title: const Text('Friday'),
+              subtitle: Row(
+                children: const [Text('6 °F'), Icon(Icons.wb_sunny)],
+              ),
+            ),
+          ),
+          Chip(
+            label: ListTile(
+              title: const Text('Saturday'),
+              subtitle: Row(
+                children: const [Text('5 °F'), Icon(Icons.wb_sunny)],
+              ),
+            ),
+          ),
+          Chip(
+            label: ListTile(
+              title: const Text('Sunday'),
+              subtitle: Row(
+                children: const [Text('16 °F'), Icon(Icons.wb_sunny)],
+              ),
+            ),
+          ),
+        ],
+      ),
+    ],
+  );
+}
 
 TextStyle styleWeaterDetail = const TextStyle(
   color: Colors.white,
   fontSize: 22.5,
 );
+
+class _InputWeatherDetailBottomMenu {
+  final String label;
+  final String elevation;
+
+  _InputWeatherDetailBottomMenu({
+    required this.label,
+    required this.elevation,
+  });
+
+  _InputWeatherDetailBottomMenu copy({
+    required String label,
+    required String elevation,
+  }) =>
+      _InputWeatherDetailBottomMenu(
+        label: label,
+        elevation: elevation,
+      );
+}
